@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+echo "Enforcing script arguments: $@"
+# Enforce NTML transport
+set -- "$@" "-e ansible_winrm_transport=ntlm"
+# Enforce SSL mode
+set -- "$@" "-e ansible_winrm_scheme=http"
+# Print enforced values
+echo "WARNING -> Enforced arguments: ${@}"
+# Run default entrypont with extra params
+exec /opt/builder/bin/entrypoint $@

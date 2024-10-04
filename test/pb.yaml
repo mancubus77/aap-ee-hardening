@@ -1,0 +1,13 @@
+- name: NTLM Disable
+  hosts: win
+  vars:
+    varvar: "LOCAL"
+  tasks:
+
+    - name: 
+      ansible.builtin.debug: 
+        msg: "varvar = {{ varvar }}"
+
+    - name: Pause for 5 minutes to build app cache
+      ansible.builtin.pause:
+        minutes: 1
